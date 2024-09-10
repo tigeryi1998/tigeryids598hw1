@@ -1,0 +1,9 @@
+{
+	"name": "tigeryihw1datafactory",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c98b242b-6d4b-4338-a175-2c69e688b9d9",
+		"tenantId": "d57d32cc-c121-488f-b07b-dfe705680c71"
+	}
+}
