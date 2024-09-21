@@ -76,6 +76,7 @@
 									"referenceName": "Json1",
 									"type": "DatasetReference",
 									"parameters": {
+										"dataType": "hour",
 										"lat": 42.3601,
 										"lon": 71.0589
 									}
