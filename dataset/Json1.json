@@ -17,6 +17,9 @@
 			"lon": {
 				"type": "float",
 				"defaultValue": 71.0589
+			},
+			"ippid": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
