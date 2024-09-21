@@ -13,6 +13,10 @@
 			"lat": {
 				"type": "float",
 				"defaultValue": 42.3601
+			},
+			"lon": {
+				"type": "float",
+				"defaultValue": 71.0589
 			}
 		},
 		"annotations": [],
