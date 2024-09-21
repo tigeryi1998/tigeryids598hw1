@@ -13,7 +13,6 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
 				"typeProperties": {
 					"method": "GET",
 					"url": "https://ds598-key-vault.vault.azure.net/secrets/OpenWeatherAPIKey/c2e6c3321a474c61a6b4564f01ae78ad?api-version=7.0",
