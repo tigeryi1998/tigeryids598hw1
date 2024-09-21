@@ -9,6 +9,10 @@
 			"dataType": {
 				"type": "string",
 				"defaultValue": "hour"
+			},
+			"lat": {
+				"type": "float",
+				"defaultValue": 42.3601
 			}
 		},
 		"annotations": [],
