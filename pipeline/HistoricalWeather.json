@@ -27,7 +27,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Web1",
+						"activity": "apikey",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -89,8 +89,37 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "apikey",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Web1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "apikey",
+					"value": {
+						"value": "@activity('Web1').output.value",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"apikey": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
