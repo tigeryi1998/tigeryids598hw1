@@ -76,7 +76,8 @@
 									"referenceName": "Json1",
 									"type": "DatasetReference",
 									"parameters": {
-										"lat": 42.3601
+										"lat": 42.3601,
+										"lon": 71.0589
 									}
 								}
 							],
