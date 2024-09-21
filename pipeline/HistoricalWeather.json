@@ -27,7 +27,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "apikey",
+						"activity": "appid",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -91,7 +91,7 @@
 				}
 			},
 			{
-				"name": "apikey",
+				"name": "appid",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
