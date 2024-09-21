@@ -107,7 +107,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "apikey",
+					"variableName": "appid",
 					"value": {
 						"value": "@activity('Web1').output.value",
 						"type": "Expression"
@@ -116,7 +116,7 @@
 			}
 		],
 		"variables": {
-			"apikey": {
+			"appid": {
 				"type": "String"
 			}
 		},
