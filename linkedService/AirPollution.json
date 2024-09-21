@@ -1,0 +1,22 @@
+{
+	"name": "AirPollution",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "http://api.openweathermap.org/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous",
+			"authHeaders": {
+				"APIKey": {
+					"type": "AzureKeyVaultSecret",
+					"store": {
+						"referenceName": "AzureKeyVault1",
+						"type": "LinkedServiceReference"
+					},
+					"secretName": "OpenWeatherAPIKey"
+				}
+			}
+		}
+	}
+}
