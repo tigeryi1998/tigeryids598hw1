@@ -78,7 +78,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Json1",
+									"referenceName": "historical_weather_source",
 									"type": "DatasetReference",
 									"parameters": {
 										"dataType": "hour",
@@ -101,7 +101,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "historicalweather",
+									"referenceName": "historical_weather",
 									"type": "DatasetReference"
 								}
 							]

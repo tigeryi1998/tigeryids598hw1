@@ -1,5 +1,5 @@
 {
-	"name": "historicalweather",
+	"name": "historical_weather",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",

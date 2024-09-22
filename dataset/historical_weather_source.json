@@ -1,5 +1,5 @@
 {
-	"name": "Json1",
+	"name": "historical_weather_source",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "HistoricalWeather",
