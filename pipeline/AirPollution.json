@@ -1,6 +1,29 @@
 {
 	"name": "AirPollution",
 	"properties": {
+		"activities": [
+			{
+				"name": "Web2",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": "https://ds598-key-vault.vault.azure.net/secrets/OpenWeatherAPIKey/c2e6c3321a474c61a6b4564f01ae78ad?api-version=7.0",
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://vault.azure.net/"
+					}
+				}
+			}
+		],
 		"annotations": []
 	}
 }
