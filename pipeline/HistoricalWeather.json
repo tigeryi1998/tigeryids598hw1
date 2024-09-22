@@ -79,7 +79,7 @@
 										"dataType": "hour",
 										"lat": 42.3601,
 										"lon": 71.0589,
-										"ippid": {
+										"appid": {
 											"value": "@activity('Web1').output.value",
 											"type": "Expression"
 										},
