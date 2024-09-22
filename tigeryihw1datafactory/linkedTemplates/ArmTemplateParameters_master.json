@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "tigeryihw1datafactory"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"tigeryids598hw1_credential": {
+			"value": ""
+		},
+		"AirPollution_properties_typeProperties_url": {
+			"value": "http://api.openweathermap.org/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://tigeryihw1storage.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://DS598-key-vault.vault.azure.net/"
+		},
+		"HistoricalWeather_properties_typeProperties_url": {
+			"value": "https://history.openweathermap.org/"
+		},
+		"tigeryids598hw1_properties_typeProperties_username": {
+			"value": "tigeryi1998"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

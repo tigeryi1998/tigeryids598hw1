@@ -1,0 +1,635 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "tigeryihw1datafactory"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"tigeryids598hw1_credential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'credential' of 'tigeryids598hw1'"
+		},
+		"AirPollution_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "http://api.openweathermap.org/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tigeryihw1storage.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://DS598-key-vault.vault.azure.net/"
+		},
+		"HistoricalWeather_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://history.openweathermap.org/"
+		},
+		"tigeryids598hw1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "tigeryi1998"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Air_Pollution_Historical_Pipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Web2",
+						"type": "WebActivity",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"method": "GET",
+							"headers": {},
+							"url": "https://ds598-key-vault.vault.azure.net/secrets/OpenWeatherAPIKey/c2e6c3321a474c61a6b4564f01ae78ad?api-version=7.0",
+							"authentication": {
+								"type": "MSI",
+								"resource": "https://vault.azure.net/"
+							}
+						}
+					},
+					{
+						"name": "CopyData2",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Web2",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "JsonSource",
+								"storeSettings": {
+									"type": "HttpReadSettings",
+									"requestMethod": "GET"
+								},
+								"formatSettings": {
+									"type": "JsonReadSettings"
+								}
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "air_pollution_source",
+								"type": "DatasetReference",
+								"parameters": {
+									"lat": 42.36,
+									"lon": 71.06,
+									"appid": "@activity('Web2').output.value",
+									"start": 1695945600,
+									"end": 1726790400
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "air_pollution_historical",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/air_pollution_source')]",
+				"[concat(variables('factoryId'), '/datasets/air_pollution_historical')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Historical_Weather_Pipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Web1",
+						"type": "WebActivity",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"method": "GET",
+							"headers": {},
+							"url": "https://ds598-key-vault.vault.azure.net/secrets/OpenWeatherAPIKey/c2e6c3321a474c61a6b4564f01ae78ad?api-version=7.0",
+							"authentication": {
+								"type": "MSI",
+								"resource": "https://vault.azure.net/"
+							}
+						}
+					},
+					{
+						"name": "ForEach1",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Web1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@variables('StartArray')",
+								"type": "Expression"
+							},
+							"isSequential": true,
+							"activities": [
+								{
+									"name": "CopyData1",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "JsonSource",
+											"storeSettings": {
+												"type": "HttpReadSettings",
+												"requestMethod": "GET"
+											},
+											"formatSettings": {
+												"type": "JsonReadSettings"
+											}
+										},
+										"sink": {
+											"type": "JsonSink",
+											"storeSettings": {
+												"type": "AzureBlobFSWriteSettings"
+											},
+											"formatSettings": {
+												"type": "JsonWriteSettings"
+											}
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "historical_weather_source",
+											"type": "DatasetReference",
+											"parameters": {
+												"dataType": "hour",
+												"lat": 42.36,
+												"lon": 71.06,
+												"appid": {
+													"value": "@activity('Web1').output.value",
+													"type": "Expression"
+												},
+												"start": {
+													"value": "@item()",
+													"type": "Expression"
+												},
+												"end": {
+													"value": "@add(item(),604800)",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "historical_weather",
+											"type": "DatasetReference",
+											"parameters": {}
+										}
+									]
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"variables": {
+					"StartArray": {
+						"type": "Array",
+						"defaultValue": [
+							1695945600,
+							1696550400,
+							1697155200,
+							1697760000,
+							1698364800,
+							1698969600,
+							1699574400,
+							1700179200,
+							1700784000,
+							1701388800,
+							1701993600,
+							1702598400,
+							1703203200,
+							1703808000,
+							1704412800,
+							1705017600,
+							1705622400,
+							1706227200,
+							1706832000,
+							1707436800,
+							1708041600,
+							1708646400,
+							1709251200,
+							1709856000,
+							1710460800,
+							1711065600,
+							1711670400,
+							1712275200,
+							1712880000,
+							1713484800,
+							1714089600,
+							1714694400,
+							1715299200,
+							1715904000,
+							1716508800,
+							1717113600,
+							1717718400,
+							1718323200,
+							1718928000,
+							1719532800,
+							1720137600,
+							1720742400,
+							1721347200,
+							1721952000,
+							1722556800,
+							1723161600,
+							1723766400,
+							1724371200,
+							1724976000,
+							1725580800,
+							1726185600
+						]
+					},
+					"EndArray": {
+						"type": "Array",
+						"defaultValue": [
+							1696550400,
+							1697155200,
+							1697760000,
+							1698364800,
+							1698969600,
+							1699574400,
+							1700179200,
+							1700784000,
+							1701388800,
+							1701993600,
+							1702598400,
+							1703203200,
+							1703808000,
+							1704412800,
+							1705017600,
+							1705622400,
+							1706227200,
+							1706832000,
+							1707436800,
+							1708041600,
+							1708646400,
+							1709251200,
+							1709856000,
+							1710460800,
+							1711065600,
+							1711670400,
+							1712275200,
+							1712880000,
+							1713484800,
+							1714089600,
+							1714694400,
+							1715299200,
+							1715904000,
+							1716508800,
+							1717113600,
+							1717718400,
+							1718323200,
+							1718928000,
+							1719532800,
+							1720137600,
+							1720742400,
+							1721347200,
+							1721952000,
+							1722556800,
+							1723161600,
+							1723766400,
+							1724371200,
+							1724976000,
+							1725580800,
+							1726185600,
+							1726790400
+						]
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/historical_weather_source')]",
+				"[concat(variables('factoryId'), '/datasets/historical_weather')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/air_pollution_historical')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Bronze",
+						"fileSystem": "hw1blobcontainer"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/air_pollution_source')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AirPollution",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"lat": {
+						"type": "float",
+						"defaultValue": 42.36
+					},
+					"lon": {
+						"type": "float",
+						"defaultValue": 71.06
+					},
+					"appid": {
+						"type": "string",
+						"defaultValue": "@activity('Web2').output.value"
+					},
+					"start": {
+						"type": "int",
+						"defaultValue": 1695945600
+					},
+					"end": {
+						"type": "int",
+						"defaultValue": 1726790400
+					}
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation",
+						"relativeUrl": {
+							"value": "data/2.5/air_pollution/history?lat=@{dataset().lat}&lon=@{dataset().lon}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}",
+							"type": "Expression"
+						}
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AirPollution')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/historical_weather')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Bronze",
+						"fileSystem": "hw1blobcontainer"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/historical_weather_source')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HistoricalWeather",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"dataType": {
+						"type": "string",
+						"defaultValue": "hour"
+					},
+					"lat": {
+						"type": "float",
+						"defaultValue": 42.36
+					},
+					"lon": {
+						"type": "float",
+						"defaultValue": 71.06
+					},
+					"appid": {
+						"type": "string",
+						"defaultValue": "@activity('Web1').output.value"
+					},
+					"start": {
+						"type": "string",
+						"defaultValue": "@item()"
+					},
+					"end": {
+						"type": "string",
+						"defaultValue": "@add(item(),604800)"
+					}
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation",
+						"relativeUrl": {
+							"value": "data/2.5/history/city?lat=@{dataset().lat}&lon=@{dataset().lon}&type=@{dataset().dataType}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}",
+							"type": "Expression"
+						}
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/HistoricalWeather')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AirPollution')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HttpServer",
+				"typeProperties": {
+					"url": "[parameters('AirPollution_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous",
+					"authHeaders": {
+						"APIKey": {
+							"type": "AzureKeyVaultSecret",
+							"store": {
+								"referenceName": "AzureKeyVault1",
+								"type": "LinkedServiceReference"
+							},
+							"secretName": "OpenWeatherAPIKey"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/HistoricalWeather')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HttpServer",
+				"typeProperties": {
+					"url": "[parameters('HistoricalWeather_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous",
+					"authHeaders": {
+						"APIKey": {
+							"type": "AzureKeyVaultSecret",
+							"store": {
+								"referenceName": "AzureKeyVault1",
+								"type": "LinkedServiceReference"
+							},
+							"secretName": "OpenWeatherAPIKey"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/tigeryids598hw1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "GitHub",
+				"typeProperties": {
+					"username": "[parameters('tigeryids598hw1_properties_typeProperties_username')]",
+					"credential": {
+						"type": "SecureString",
+						"value": "[parameters('tigeryids598hw1_credential')]"
+					},
+					"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEZDRTM3NzlFLUU1ODgtNDY4NC1BMUQ4LTYzNzQyRkFGRDJCQV82OTg2N2Y5Ny00MTcxLTQzZWEtODk2YS0yZjU1ZTE1MmRlNjAiDQp9"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
