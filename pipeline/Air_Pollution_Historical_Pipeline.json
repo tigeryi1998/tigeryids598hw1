@@ -1,5 +1,5 @@
 {
-	"name": "AirPollution",
+	"name": "Air_Pollution_Historical_Pipeline",
 	"properties": {
 		"activities": [
 			{
@@ -70,7 +70,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"lat": 42.36,
-							"lon": "71.06",
+							"lon": 71.06,
 							"appid": "@activity('Web2').output.value",
 							"start": 1695945600,
 							"end": 1726790400
