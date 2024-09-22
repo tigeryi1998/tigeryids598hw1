@@ -58,7 +58,12 @@
 				"inputs": [
 					{
 						"referenceName": "Json3",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"lat": 42.36,
+							"lon": "71.06",
+							"appid": "@activity('Web2').output.value"
+						}
 					}
 				]
 			}
