@@ -35,6 +35,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@variables('StartArray')",
+						"type": "Expression"
+					},
 					"isSequential": true,
 					"activities": [
 						{
@@ -79,9 +83,18 @@
 										"dataType": "hour",
 										"lat": 42.36,
 										"lon": 71.06,
-										"appid": "45f6f6d6e95fafdf3c73dd7e5961afb0",
-										"start": 1695513600,
-										"end": 1695945600
+										"appid": {
+											"value": "@activity('Web1').output.value",
+											"type": "Expression"
+										},
+										"start": {
+											"value": "@item()",
+											"type": "Expression"
+										},
+										"end": {
+											"value": "@add(item(),604800)",
+											"type": "Expression"
+										}
 									}
 								}
 							],
