@@ -24,7 +24,7 @@
 			},
 			"start": {
 				"type": "int",
-				"defaultValue": 1369728000
+				"defaultValue": 1694649600
 			},
 			"end": {
 				"type": "int",
