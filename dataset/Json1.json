@@ -28,7 +28,7 @@
 			},
 			"end": {
 				"type": "int",
-				"defaultValue": 1695945600
+				"defaultValue": "@add(item(),604800)"
 			}
 		},
 		"annotations": [],
