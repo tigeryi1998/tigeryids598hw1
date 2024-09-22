@@ -12,11 +12,11 @@
 			},
 			"lat": {
 				"type": "float",
-				"defaultValue": 41.85
+				"defaultValue": 42.36
 			},
 			"lon": {
 				"type": "float",
-				"defaultValue": -87.65
+				"defaultValue": 71.06
 			},
 			"appid": {
 				"type": "string",
