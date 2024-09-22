@@ -23,11 +23,11 @@
 				"defaultValue": "@activity('Web1').output.value"
 			},
 			"start": {
-				"type": "int",
+				"type": "string",
 				"defaultValue": "@item()"
 			},
 			"end": {
-				"type": "int",
+				"type": "string",
 				"defaultValue": "@add(item(),604800)"
 			}
 		},
