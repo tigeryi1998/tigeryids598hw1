@@ -24,7 +24,7 @@
 			},
 			"start": {
 				"type": "int",
-				"defaultValue": 1695513600
+				"defaultValue": "@item()"
 			},
 			"end": {
 				"type": "int",
