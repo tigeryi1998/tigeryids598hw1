@@ -102,6 +102,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "air_pollution_historical.json",
 						"folderPath": "Bronze",
 						"fileSystem": "hw1blobcontainer"
 					}
@@ -126,6 +127,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "historical_weather.json",
 						"folderPath": "Bronze",
 						"fileSystem": "hw1blobcontainer"
 					}
