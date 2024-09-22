@@ -24,11 +24,11 @@
 			},
 			"start": {
 				"type": "int",
-				"defaultValue": 1695945600
+				"defaultValue": 1695427200
 			},
 			"end": {
 				"type": "int",
-				"defaultValue": 1696550400
+				"defaultValue": 1695945600
 			}
 		},
 		"annotations": [],
