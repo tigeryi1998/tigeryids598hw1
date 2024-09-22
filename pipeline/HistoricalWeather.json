@@ -54,8 +54,7 @@
 									"type": "JsonSource",
 									"storeSettings": {
 										"type": "HttpReadSettings",
-										"requestMethod": "GET",
-										"requestTimeout": ""
+										"requestMethod": "GET"
 									},
 									"formatSettings": {
 										"type": "JsonReadSettings"
@@ -78,14 +77,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"dataType": "hour",
-										"lat": 42.36,
-										"lon": 71.06,
-										"appid": {
-											"value": "45f6f6d6e95fafdf3c73dd7e5961afb0",
-											"type": "Expression"
-										},
+										"lat": 42.3601,
+										"lon": 71.0589,
+										"appid": "45f6f6d6e95fafdf3c73dd7e5961afb0",
 										"start": 1369728000,
-										"end": 1369789200
+										"end": 1369738000
 									}
 								}
 							],
