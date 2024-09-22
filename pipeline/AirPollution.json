@@ -53,6 +53,15 @@
 							"type": "JsonReadSettings"
 						}
 					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
 					"enableStaging": false
 				},
 				"inputs": [
@@ -64,6 +73,12 @@
 							"lon": "71.06",
 							"appid": "@activity('Web2').output.value"
 						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "airpollution",
+						"type": "DatasetReference"
 					}
 				]
 			}

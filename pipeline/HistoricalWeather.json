@@ -100,7 +100,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "Json2",
+									"referenceName": "historicalweather",
 									"type": "DatasetReference"
 								}
 							]

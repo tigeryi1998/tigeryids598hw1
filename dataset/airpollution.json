@@ -1,5 +1,5 @@
 {
-	"name": "historicalweather",
+	"name": "airpollution",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",

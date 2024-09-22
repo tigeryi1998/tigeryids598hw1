@@ -17,6 +17,14 @@
 			"appid": {
 				"type": "string",
 				"defaultValue": "@activity('Web2').output.value"
+			},
+			"start": {
+				"type": "int",
+				"defaultValue": 1695945600
+			},
+			"end": {
+				"type": "int",
+				"defaultValue": 1726790400
 			}
 		},
 		"annotations": [],
