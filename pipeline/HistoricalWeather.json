@@ -123,11 +123,6 @@
 				}
 			}
 		],
-		"variables": {
-			"appid": {
-				"type": "String"
-			}
-		},
 		"annotations": []
 	}
 }
