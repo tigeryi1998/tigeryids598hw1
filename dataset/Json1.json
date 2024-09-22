@@ -19,7 +19,8 @@
 				"defaultValue": 71.0589
 			},
 			"ippid": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "@activity('Web1').output.value"
 			}
 		},
 		"annotations": [],
