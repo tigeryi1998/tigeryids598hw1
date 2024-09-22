@@ -32,7 +32,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "data/2.5/air_pollution?lat=@{dataset().lat}&lon=@{dataset().lon}&appid=@{dataset().appid}"
+				"relativeUrl": "data/2.5/air_pollution/history?lat=@{dataset().lat}&lon=@{dataset().lon}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}"
 			}
 		},
 		"schema": {}
