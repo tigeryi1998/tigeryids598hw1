@@ -5,6 +5,20 @@
 			"referenceName": "AirPollution",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"lat": {
+				"type": "float",
+				"defaultValue": 42.36
+			},
+			"lon": {
+				"type": "int",
+				"defaultValue": "71.06"
+			},
+			"appid": {
+				"type": "string",
+				"defaultValue": "@activity('Web2').output.value"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
