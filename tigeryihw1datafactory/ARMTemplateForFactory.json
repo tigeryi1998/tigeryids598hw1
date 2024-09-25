@@ -114,8 +114,8 @@
 								"referenceName": "air_pollution_source",
 								"type": "DatasetReference",
 								"parameters": {
-									"lat": 42.36,
-									"lon": 71.06,
+									"lat": 42.3601,
+									"lon": -71.0589,
 									"appid": "@activity('Web2').output.value",
 									"start": 1695945600,
 									"end": 1726790400
@@ -228,20 +228,11 @@
 											"type": "DatasetReference",
 											"parameters": {
 												"dataType": "hour",
-												"lat": 42.36,
-												"lon": 71.06,
-												"appid": {
-													"value": "@activity('Web1').output.value",
-													"type": "Expression"
-												},
-												"start": {
-													"value": "@item()",
-													"type": "Expression"
-												},
-												"end": {
-													"value": "@add(item(),604800)",
-													"type": "Expression"
-												}
+												"lat": 42.3601,
+												"lon": -71.0589,
+												"appid": "@activity('Web1').output.value",
+												"start": "@item()",
+												"end": "@add(item(),604800)"
 											}
 										}
 									],
