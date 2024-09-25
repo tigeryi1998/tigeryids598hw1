@@ -82,20 +82,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"dataType": "hour",
-										"lat": 42.36,
-										"lon": 71.06,
-										"appid": {
-											"value": "@activity('Web1').output.value",
-											"type": "Expression"
-										},
-										"start": {
-											"value": "@item()",
-											"type": "Expression"
-										},
-										"end": {
-											"value": "@add(item(),604800)",
-											"type": "Expression"
-										}
+										"lat": 42.3601,
+										"lon": -71.0589,
+										"appid": "@activity('Web1').output.value",
+										"start": "@item()",
+										"end": "@add(item(),604800)"
 									}
 								}
 							],
