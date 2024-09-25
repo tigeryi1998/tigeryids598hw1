@@ -204,11 +204,11 @@
 				"parameters": {
 					"lat": {
 						"type": "float",
-						"defaultValue": 42.36
+						"defaultValue": 42.3601
 					},
 					"lon": {
 						"type": "float",
-						"defaultValue": 71.06
+						"defaultValue": -71.0589
 					},
 					"appid": {
 						"type": "string",
@@ -256,11 +256,11 @@
 					},
 					"lat": {
 						"type": "float",
-						"defaultValue": 42.36
+						"defaultValue": 42.3601
 					},
 					"lon": {
 						"type": "float",
-						"defaultValue": 71.06
+						"defaultValue": -71.0589
 					},
 					"appid": {
 						"type": "string",
@@ -438,7 +438,7 @@
 								"value": "@variables('StartArray')",
 								"type": "Expression"
 							},
-							"isSequential": true,
+							"isSequential": false,
 							"activities": [
 								{
 									"name": "CopyData1",
