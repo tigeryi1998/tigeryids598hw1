@@ -438,7 +438,7 @@
 								"value": "@variables('StartArray')",
 								"type": "Expression"
 							},
-							"isSequential": false,
+							"isSequential": true,
 							"activities": [
 								{
 									"name": "CopyData1",
