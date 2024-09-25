@@ -8,7 +8,7 @@
 		"parameters": {
 			"lat": {
 				"type": "float",
-				"defaultValue": 42.36
+				"defaultValue": 42.3645
 			},
 			"lon": {
 				"type": "float",
