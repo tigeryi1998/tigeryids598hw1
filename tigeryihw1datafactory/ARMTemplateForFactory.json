@@ -214,7 +214,8 @@
 										"sink": {
 											"type": "JsonSink",
 											"storeSettings": {
-												"type": "AzureBlobFSWriteSettings"
+												"type": "AzureBlobFSWriteSettings",
+												"copyBehavior": "MergeFiles"
 											},
 											"formatSettings": {
 												"type": "JsonWriteSettings"
@@ -459,6 +460,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "historical_weather.json",
 						"folderPath": "Bronze",
 						"fileSystem": "hw1blobcontainer"
 					}
