@@ -1,0 +1,83 @@
+{
+	"name": "copysink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "historical_weather_total.json",
+				"folderPath": "Bronze",
+				"fileSystem": "hw1blobcontainer"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"coord": {
+					"type": "object",
+					"properties": {
+						"lon": {
+							"type": "number"
+						},
+						"lat": {
+							"type": "number"
+						}
+					}
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"main": {
+								"type": "object",
+								"properties": {
+									"aqi": {
+										"type": "integer"
+									}
+								}
+							},
+							"components": {
+								"type": "object",
+								"properties": {
+									"co": {
+										"type": "number"
+									},
+									"no": {
+										"type": "integer"
+									},
+									"no2": {
+										"type": "number"
+									},
+									"o3": {
+										"type": "number"
+									},
+									"so2": {
+										"type": "number"
+									},
+									"pm2_5": {
+										"type": "number"
+									},
+									"pm10": {
+										"type": "number"
+									},
+									"nh3": {
+										"type": "number"
+									}
+								}
+							},
+							"dt": {
+								"type": "integer"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

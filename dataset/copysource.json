@@ -1,5 +1,5 @@
 {
-	"name": "Json1",
+	"name": "copysource",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
