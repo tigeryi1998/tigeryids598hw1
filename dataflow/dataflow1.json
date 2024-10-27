@@ -9,7 +9,7 @@
 						"referenceName": "weather_bronze_source",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "sourceweather"
 				}
 			],
 			"sinks": [],
@@ -28,7 +28,7 @@
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['data_*.json']) ~> source1"
+				"     wildcardPaths:['data_*.json']) ~> sourceweather"
 			]
 		}
 	}
