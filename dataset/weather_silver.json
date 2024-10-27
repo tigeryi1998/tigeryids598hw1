@@ -1,0 +1,112 @@
+{
+	"name": "weather_silver",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "data_043a70ca-0a20-42eb-8c9e-438d51515d5e_dac99988-3839-4209-b375-bc6d4a6535e0.json",
+				"folderPath": "Bronze",
+				"fileSystem": "hw1blobcontainer"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string"
+				},
+				"cod": {
+					"type": "string"
+				},
+				"city_id": {
+					"type": "integer"
+				},
+				"calctime": {
+					"type": "number"
+				},
+				"cnt": {
+					"type": "integer"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"dt": {
+								"type": "integer"
+							},
+							"main": {
+								"type": "object",
+								"properties": {
+									"temp": {
+										"type": "number"
+									},
+									"feels_like": {
+										"type": "number"
+									},
+									"pressure": {
+										"type": "integer"
+									},
+									"humidity": {
+										"type": "integer"
+									},
+									"temp_min": {
+										"type": "number"
+									},
+									"temp_max": {
+										"type": "number"
+									}
+								}
+							},
+							"wind": {
+								"type": "object",
+								"properties": {
+									"speed": {
+										"type": "number"
+									},
+									"deg": {
+										"type": "integer"
+									}
+								}
+							},
+							"clouds": {
+								"type": "object",
+								"properties": {
+									"all": {
+										"type": "integer"
+									}
+								}
+							},
+							"weather": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "integer"
+										},
+										"main": {
+											"type": "string"
+										},
+										"description": {
+											"type": "string"
+										},
+										"icon": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
