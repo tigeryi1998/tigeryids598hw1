@@ -26,7 +26,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> source1"
+				"     documentForm: 'documentPerLine',",
+				"     wildcardPaths:['data_*.json']) ~> source1"
 			]
 		}
 	}
