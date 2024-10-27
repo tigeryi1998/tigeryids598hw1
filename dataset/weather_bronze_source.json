@@ -1,5 +1,5 @@
 {
-	"name": "weather_silver",
+	"name": "weather_bronze_source",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
