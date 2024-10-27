@@ -5,14 +5,28 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "weather_silver",
+						"type": "DatasetReference"
+					},
 					"name": "source1"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> source1"
+				"source(output(",
+				"          message as string,",
+				"          cod as string,",
+				"          city_id as integer,",
+				"          calctime as double,",
+				"          cnt as integer,",
+				"          list as (dt as integer, main as (temp as double, feels_like as double, pressure as integer, humidity as integer, temp_min as double, temp_max as double), wind as (speed as double, deg as integer), clouds as (all as integer), weather as (id as integer, main as string, description as string, icon as string)[])[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source1"
 			]
 		}
 	}
