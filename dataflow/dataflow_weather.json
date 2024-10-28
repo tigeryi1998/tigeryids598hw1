@@ -53,7 +53,8 @@
 				"          weather_id = list.weather.id,",
 				"          weather_main = list.weather.main,",
 				"          wind_deg = list.wind.deg,",
-				"          wind_speed = list.wind.speed",
+				"          wind_speed = list.wind.speed,",
+				"          rain_1h = list.rain.{1h}",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1"
