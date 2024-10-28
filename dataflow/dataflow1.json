@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "flatten1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          message as string,",
@@ -28,7 +32,18 @@
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['data_*.json']) ~> sourceweather"
+				"     wildcardPaths:['data_*.json']) ~> sourceweather",
+				"sourceweather foldDown(unroll(list),",
+				"     mapColumn(",
+				"          message,",
+				"          cod,",
+				"          city_id,",
+				"          calctime,",
+				"          cnt,",
+				"          {clouds.all} = list.clouds.all",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1"
 			]
 		}
 	}
