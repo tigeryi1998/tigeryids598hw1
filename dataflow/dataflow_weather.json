@@ -42,7 +42,8 @@
 				"          cnt,",
 				"          {clouds.all} = list.clouds.all,",
 				"          timestamp = list.dt,",
-				"          feels_like = list.main.feels_like",
+				"          feels_like = list.main.feels_like,",
+				"          humidity = list.main.humidity",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1"
