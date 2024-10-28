@@ -21,7 +21,7 @@
 					"name": "timestamplocation"
 				},
 				{
-					"name": "filter1"
+					"name": "filternull"
 				}
 			],
 			"scriptLines": [
@@ -67,7 +67,7 @@
 				"     skipDuplicateMapOutputs: false) ~> flattenweather",
 				"flattenweather derive(corrected_timestamp = iif(timestamp>1000000000, toInteger(null()), timestamp),",
 				"          location = 'Boston') ~> timestamplocation",
-				"timestamplocation filter((corrected_timestamp != -1) && (temp != null()) ) ~> filter1"
+				"timestamplocation filter((!isNull(timestamp))&&(!isNull(temp))&&(!isNull(humidity))) ~> filternull"
 			]
 		}
 	}
