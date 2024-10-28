@@ -52,7 +52,8 @@
 				"          weather_icon = list.weather.icon,",
 				"          weather_id = list.weather.id,",
 				"          weather_main = list.weather.main,",
-				"          wind_deg = list.wind.deg",
+				"          wind_deg = list.wind.deg,",
+				"          wind_speed = list.wind.speed",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1"
