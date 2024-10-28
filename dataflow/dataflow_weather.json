@@ -16,6 +16,9 @@
 			"transformations": [
 				{
 					"name": "flattenweather"
+				},
+				{
+					"name": "timestamplocation"
 				}
 			],
 			"scriptLines": [
@@ -58,7 +61,8 @@
 				"          rain_1h = list.rain.{1h}",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flattenweather"
+				"     skipDuplicateMapOutputs: false) ~> flattenweather",
+				"flattenweather derive() ~> timestamplocation"
 			]
 		}
 	}
