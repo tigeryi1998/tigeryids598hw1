@@ -41,7 +41,8 @@
 				"          calctime,",
 				"          cnt,",
 				"          {clouds.all} = list.clouds.all,",
-				"          timestamp = list.dt",
+				"          timestamp = list.dt,",
+				"          feels_like = list.main.feels_like",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1"
