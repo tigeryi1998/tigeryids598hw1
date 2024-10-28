@@ -19,6 +19,9 @@
 				},
 				{
 					"name": "timestamplocation"
+				},
+				{
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -63,7 +66,8 @@
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flattenweather",
 				"flattenweather derive(corrected_timestamp = iif(timestamp>1000000000, timestamp, -1),",
-				"          location = 'Boston') ~> timestamplocation"
+				"          location = 'Boston') ~> timestamplocation",
+				"timestamplocation filter((corrected_timestamp != -1)) ~> filter1"
 			]
 		}
 	}
