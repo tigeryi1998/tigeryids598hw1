@@ -40,7 +40,8 @@
 				"          city_id,",
 				"          calctime,",
 				"          cnt,",
-				"          {clouds.all} = list.clouds.all",
+				"          {clouds.all} = list.clouds.all,",
+				"          timestamp = list.dt",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1"
