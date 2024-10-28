@@ -62,7 +62,8 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flattenweather",
-				"flattenweather derive() ~> timestamplocation"
+				"flattenweather derive(corrected_timestamp = iif(timestamp>1000000000, timestamp, 0),",
+				"          location = 'Boston') ~> timestamplocation"
 			]
 		}
 	}
