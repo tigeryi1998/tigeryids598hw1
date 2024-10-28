@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "data_b7430c99-502e-493a-805a-41cbdf5abdc6_5c2689fc-7380-4803-85bf-e943f8af81c2.json",
+				"fileName": "data_8817e8cd-f5be-4d77-9b49-4b002153fb79_d76318aa-aeae-496d-ac9b-168448d4df20.json",
 				"folderPath": "Bronze",
 				"fileSystem": "hw1blobcontainer"
 			}
