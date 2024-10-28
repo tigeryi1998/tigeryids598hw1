@@ -67,7 +67,7 @@
 				"     skipDuplicateMapOutputs: false) ~> flattenweather",
 				"flattenweather derive(corrected_timestamp = iif(timestamp>1000000000, toInteger(null()), timestamp),",
 				"          location = 'Boston') ~> timestamplocation",
-				"timestamplocation filter((!isNull(timestamp))&&(!isNull(temp))&&(!isNull(humidity))) ~> filternull"
+				"timestamplocation filter((!isNull(corrected_timestamp))&&(!isNull(temp))&&(!isNull(humidity))) ~> filternull"
 			]
 		}
 	}
