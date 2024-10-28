@@ -40,7 +40,7 @@
 				"          city_id,",
 				"          calctime,",
 				"          cnt,",
-				"          {clouds.all} = list.clouds.all,",
+				"          clouds_all = list.clouds.all,",
 				"          timestamp = list.dt,",
 				"          feels_like = list.main.feels_like,",
 				"          humidity = list.main.humidity,",
