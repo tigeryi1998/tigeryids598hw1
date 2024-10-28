@@ -43,7 +43,9 @@
 				"          {clouds.all} = list.clouds.all,",
 				"          timestamp = list.dt,",
 				"          feels_like = list.main.feels_like,",
-				"          humidity = list.main.humidity",
+				"          humidity = list.main.humidity,",
+				"          pressure = list.main.pressure,",
+				"          temp = list.main.temp",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1"
