@@ -65,7 +65,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flattenweather",
-				"flattenweather derive(corrected_timestamp = iif(timestamp>1000000000, timestamp, -1),",
+				"flattenweather derive(corrected_timestamp = iif(timestamp>1000000000, toInteger(null()), timestamp),",
 				"          location = 'Boston') ~> timestamplocation",
 				"timestamplocation filter((corrected_timestamp != -1) && (temp != null()) ) ~> filter1"
 			]
