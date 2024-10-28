@@ -10,11 +10,106 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "data_408ab263-4881-4db1-a947-11c643144535_749acc5d-2cc7-4ffd-8990-e5efb46e092e.json",
+				"fileName": "data_51655762-606c-479e-b970-a51f66950a46_6e4dc813-3354-4e93-b48d-6cbb65438c96.json",
 				"folderPath": "Bronze",
 				"fileSystem": "hw1blobcontainer"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string"
+				},
+				"cod": {
+					"type": "string"
+				},
+				"city_id": {
+					"type": "integer"
+				},
+				"calctime": {
+					"type": "number"
+				},
+				"cnt": {
+					"type": "integer"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"dt": {
+								"type": "integer"
+							},
+							"main": {
+								"type": "object",
+								"properties": {
+									"temp": {
+										"type": "number"
+									},
+									"feels_like": {
+										"type": "number"
+									},
+									"pressure": {
+										"type": "integer"
+									},
+									"humidity": {
+										"type": "integer"
+									},
+									"temp_min": {
+										"type": "number"
+									},
+									"temp_max": {
+										"type": "number"
+									}
+								}
+							},
+							"wind": {
+								"type": "object",
+								"properties": {
+									"speed": {
+										"type": "number"
+									},
+									"deg": {
+										"type": "integer"
+									},
+									"gust": {
+										"type": "number"
+									}
+								}
+							},
+							"clouds": {
+								"type": "object",
+								"properties": {
+									"all": {
+										"type": "integer"
+									}
+								}
+							},
+							"weather": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "integer"
+										},
+										"main": {
+											"type": "string"
+										},
+										"description": {
+											"type": "string"
+										},
+										"icon": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
