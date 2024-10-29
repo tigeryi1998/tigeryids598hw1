@@ -60,7 +60,8 @@
 				"filterpollution derive(date_time = toTimestamp(toLong(corrected_timestamp)),",
 				"          id = concat(location, toString(corrected_timestamp)),",
 				"          co = round(co, 2),",
-				"          no = round(no, 2)) ~> derivedpollution"
+				"          no = round(no, 2),",
+				"          no2 = round(no2, 2)) ~> derivedpollution"
 			]
 		}
 	}
