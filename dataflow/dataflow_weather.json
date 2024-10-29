@@ -75,6 +75,7 @@
 				"          id = concat(location, toString(corrected_timestamp)),",
 				"          temp_C = (temp - 273.15),",
 				"          temp_min_C = (temp_min - 273.15),",
+				"          temp_max_C = (temp_max - 273.15),",
 				"          temp_F = (temp - 273.15) * 1.8 + 32) ~> derivedColumn1"
 			]
 		}
