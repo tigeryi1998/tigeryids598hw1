@@ -48,7 +48,8 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flattenpollution",
-				"flattenpollution derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null()))) ~> tslocationpollution"
+				"flattenpollution derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null())),",
+				"          {location } = 'Boston') ~> tslocationpollution"
 			]
 		}
 	}
