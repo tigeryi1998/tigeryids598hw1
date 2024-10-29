@@ -82,7 +82,7 @@
 				"flattenweather derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null())),",
 				"          location = 'Boston') ~> tslocationweather",
 				"tslocationweather filter((!isNull(corrected_timestamp))&&(!isNull(temp))&&(!isNull(humidity))) ~> filternullweather",
-				"filternullweather derive(date_time = toTimestamp(toLong(corrected_timestamp)),",
+				"filternullweather derive(date_time = toTimestamp(toLong(corrected_timestamp) * 1000),",
 				"          id = concat(location, toString(corrected_timestamp)),",
 				"          temp_C = round(temp - 273.15, 2),",
 				"          temp_min_C = round(temp_min - 273.15, 2),",
