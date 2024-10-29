@@ -24,7 +24,7 @@
 					"name": "filternull"
 				},
 				{
-					"name": "derivedcolumns"
+					"name": "derivedweather"
 				},
 				{
 					"name": "selectdropweather"
@@ -90,8 +90,8 @@
 				"          weather_main_value = toString(weather_main[0]),",
 				"          weather_description_value = toString(weather_description[0]),",
 				"          weather_icon_value = toString(weather_icon[0]),",
-				"          rain_1h = iif(isNull(rain_1h), toFloat(0.0), toFloat(rain_1h))) ~> derivedcolumns",
-				"derivedcolumns select(mapColumn(",
+				"          rain_1h = iif(isNull(rain_1h), toFloat(0.0), toFloat(rain_1h))) ~> derivedweather",
+				"derivedweather select(mapColumn(",
 				"          clouds_all,",
 				"          feels_like_K = feels_like,",
 				"          humidity,",
