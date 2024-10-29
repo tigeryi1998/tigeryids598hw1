@@ -25,8 +25,7 @@
 						"referenceName": "silver_weather_historical_csv",
 						"type": "DatasetReference"
 					},
-					"name": "sinkweathercsv",
-					"description": "Export data to silver_weather_historical"
+					"name": "sinkweathercsv"
 				}
 			],
 			"transformations": [
