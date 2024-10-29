@@ -57,7 +57,7 @@
 				"flattenpollution derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null())),",
 				"          {location } = 'Boston') ~> tslocationpollution",
 				"tslocationpollution filter((!isNull(corrected_timestamp))&&(!isNull(aqi))) ~> filterpollution",
-				"filterpollution derive() ~> derivedpollution"
+				"filterpollution derive(date_time = toTimestamp(toLong(corrected_timestamp))) ~> derivedpollution"
 			]
 		}
 	}
