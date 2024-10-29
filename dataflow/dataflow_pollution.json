@@ -62,7 +62,8 @@
 				"          co = round(co, 2),",
 				"          no = round(no, 2),",
 				"          no2 = round(no2, 2),",
-				"          o3 = round(o3, 2)) ~> derivedpollution"
+				"          o3 = round(o3, 2),",
+				"          so2 = round(so2, 2)) ~> derivedpollution"
 			]
 		}
 	}
