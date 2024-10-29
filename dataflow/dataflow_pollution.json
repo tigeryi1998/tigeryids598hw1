@@ -19,6 +19,9 @@
 				},
 				{
 					"name": "tslocationpollution"
+				},
+				{
+					"name": "filterpollution"
 				}
 			],
 			"scriptLines": [
@@ -49,7 +52,8 @@
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flattenpollution",
 				"flattenpollution derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null())),",
-				"          {location } = 'Boston') ~> tslocationpollution"
+				"          {location } = 'Boston') ~> tslocationpollution",
+				"tslocationpollution filter((!isNull(corrected_timestamp))&&(!isNull(aqi))) ~> filterpollution"
 			]
 		}
 	}
