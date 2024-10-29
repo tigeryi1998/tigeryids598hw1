@@ -27,7 +27,7 @@
 					"name": "derivedcolumns"
 				},
 				{
-					"name": "select1"
+					"name": "selectdropweather"
 				}
 			],
 			"scriptLines": [
@@ -123,7 +123,7 @@
 				"          weather_icon_value",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1"
+				"     skipDuplicateMapOutputs: true) ~> selectdropweather"
 			]
 		}
 	}
