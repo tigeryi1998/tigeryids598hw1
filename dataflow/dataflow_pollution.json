@@ -58,7 +58,8 @@
 				"          location = 'Boston') ~> tslocationpollution",
 				"tslocationpollution filter((!isNull(corrected_timestamp))&&(!isNull(aqi))) ~> filterpollution",
 				"filterpollution derive(date_time = toTimestamp(toLong(corrected_timestamp)),",
-				"          id = concat(location, toString(corrected_timestamp))) ~> derivedpollution"
+				"          id = concat(location, toString(corrected_timestamp)),",
+				"          co = round(co, 2)) ~> derivedpollution"
 			]
 		}
 	}
