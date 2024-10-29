@@ -65,7 +65,8 @@
 				"          o3 = round(o3, 2),",
 				"          so2 = round(so2, 2),",
 				"          pm2_5 = round(pm2_5, 2),",
-				"          pm10 = round(pm10, 2)) ~> derivedpollution"
+				"          pm10 = round(pm10, 2),",
+				"          nh3 = round(nh3, 2)) ~> derivedpollution"
 			]
 		}
 	}
