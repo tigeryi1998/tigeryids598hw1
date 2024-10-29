@@ -136,7 +136,7 @@
 				"     validateSchema: false,",
 				"     format: 'parquet',",
 				"     partitionFileNames:['silver_weather_historical.parquet'],",
-				"     umask: 0777,",
+				"     umask: 0770,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
