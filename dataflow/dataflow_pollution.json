@@ -30,8 +30,12 @@
 				"     documentForm: 'documentPerLine') ~> sourcepollution",
 				"sourcepollution foldDown(unroll(list),",
 				"     mapColumn(",
+				"          lat = coord.lat,",
 				"          lon = coord.lon,",
-				"          lat = coord.lat",
+				"          timestamp = list.dt,",
+				"          aqi = list.main.aqi,",
+				"          co = list.components.co,",
+				"          no = list.components.no",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flattenpollution"
