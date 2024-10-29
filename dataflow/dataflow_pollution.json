@@ -18,7 +18,7 @@
 					"name": "flattenpollution"
 				},
 				{
-					"name": "derivedColumn1"
+					"name": "tslocationpollution"
 				}
 			],
 			"scriptLines": [
@@ -48,7 +48,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flattenpollution",
-				"flattenpollution derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null()))) ~> derivedColumn1"
+				"flattenpollution derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null()))) ~> tslocationpollution"
 			]
 		}
 	}
