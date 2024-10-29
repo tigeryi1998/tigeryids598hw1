@@ -12,7 +12,15 @@
 					"name": "sourceweather"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "silver_weather_historical",
+						"type": "DatasetReference"
+					},
+					"name": "sinkweather"
+				}
+			],
 			"transformations": [
 				{
 					"name": "flattenweather"
@@ -123,7 +131,17 @@
 				"          weather_icon_value",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> selectdropweather"
+				"     skipDuplicateMapOutputs: true) ~> selectdropweather",
+				"selectdropweather sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     partitionFileNames:['silver_weather_historical.parquet'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sinkweather"
 			]
 		}
 	}
