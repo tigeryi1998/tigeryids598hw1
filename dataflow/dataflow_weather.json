@@ -19,6 +19,14 @@
 						"type": "DatasetReference"
 					},
 					"name": "sinkweather"
+				},
+				{
+					"dataset": {
+						"referenceName": "silver_weather_historical_csv",
+						"type": "DatasetReference"
+					},
+					"name": "sinkweathercsv",
+					"description": "Export data to silver_weather_historical"
 				}
 			],
 			"transformations": [
@@ -141,7 +149,16 @@
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sinkweather"
+				"     partitionBy('hash', 1)) ~> sinkweather",
+				"selectdropweather sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['silver_weather_historical.csv'],",
+				"     umask: 0770,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sinkweathercsv"
 			]
 		}
 	}
