@@ -101,7 +101,7 @@
 				"     validateSchema: false,",
 				"     format: 'parquet',",
 				"     partitionFileNames:['silver_pollution_historical.parquet'],",
-				"     umask: 0022,",
+				"     umask: 0777,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
