@@ -84,7 +84,9 @@
 				"          lat = 42.3601,",
 				"          lon = -71.0589,",
 				"          weather_id_value = toInteger(weather_id[0]),",
-				"          weather_main_value = toInteger(weather_main[0])) ~> derivedcolumns"
+				"          weather_main_value = toString(weather_main[0]),",
+				"          weather_description_value = toString(weather_description[0]),",
+				"          weather_icon_value = toString(weather_icon[0])) ~> derivedcolumns"
 			]
 		}
 	}
