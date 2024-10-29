@@ -22,6 +22,9 @@
 				},
 				{
 					"name": "filternull"
+				},
+				{
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -65,9 +68,11 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flattenweather",
-				"flattenweather derive(corrected_timestamp = iif(timestamp>1000000000, toInteger(null()), timestamp),",
+				"flattenweather derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null())),",
 				"          location = 'Boston') ~> timestamplocation",
-				"timestamplocation filter((!isNull(corrected_timestamp))&&(!isNull(temp))&&(!isNull(humidity))) ~> filternull"
+				"timestamplocation filter((!isNull(corrected_timestamp))&&(!isNull(temp))&&(!isNull(humidity))) ~> filternull",
+				"filternull derive(date_time = toTimestamp(toLong(corrected_timestamp)),",
+				"          id = concat(location, toString(corrected_timestamp))) ~> derivedColumn1"
 			]
 		}
 	}
