@@ -192,7 +192,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/weather_bronze_source')]",
+			"name": "[concat(parameters('factoryName'), '/bronze_weather_historical')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -445,7 +445,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "weather_bronze_source",
+								"referenceName": "bronze_weather_historical",
 								"type": "DatasetReference"
 							},
 							"name": "sourceweather"
@@ -585,7 +585,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/weather_bronze_source')]",
+				"[concat(variables('factoryId'), '/datasets/bronze_weather_historical')]",
 				"[concat(variables('factoryId'), '/datasets/silver_weather_historical')]"
 			]
 		},
