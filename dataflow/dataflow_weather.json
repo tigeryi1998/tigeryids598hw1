@@ -77,7 +77,10 @@
 				"          temp_min_C = round(temp_min - 273.15),",
 				"          temp_max_C = round(temp_max - 273.15),",
 				"          feels_like_C = round(feels_like - 273.15),",
-				"          temp_F = round((temp - 273.15) * 1.8 + 32)) ~> derivedColumn1"
+				"          temp_F = round((temp - 273.15) * 1.8 + 32),",
+				"          temp_min_F = round((temp_min - 273.15) * 1.8 + 32),",
+				"          temp_max_F = round((temp_max - 273.15) * 1.8 + 32),",
+				"          feels_like_F = round((feels_like - 273.15) * 1.8 + 32)) ~> derivedColumn1"
 			]
 		}
 	}
