@@ -98,7 +98,6 @@
 				"          cod,",
 				"          message,",
 				"          clouds_all,",
-				"          timestamp,",
 				"          feels_like_K = feels_like,",
 				"          humidity,",
 				"          pressure,",
