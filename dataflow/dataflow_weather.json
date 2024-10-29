@@ -76,7 +76,8 @@
 				"          temp_C = (temp - 273.15),",
 				"          temp_min_C = (temp_min - 273.15),",
 				"          temp_max_C = (temp_max - 273.15),",
-				"          temp_F = (temp - 273.15) * 1.8 + 32) ~> derivedColumn1"
+				"          temp_F = (temp - 273.15) * 1.8 + 32,",
+				"          feels_like_C = (feels_like - 273.15)) ~> derivedColumn1"
 			]
 		}
 	}
