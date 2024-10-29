@@ -13,7 +13,7 @@
 				"folderPath": "silver",
 				"fileSystem": "data"
 			},
-			"compressionCodec": "snappy"
+			"compressionCodec": "none"
 		},
 		"schema": []
 	}
