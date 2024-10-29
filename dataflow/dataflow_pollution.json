@@ -19,6 +19,14 @@
 						"type": "DatasetReference"
 					},
 					"name": "sinkpollution"
+				},
+				{
+					"dataset": {
+						"referenceName": "silver_pollution_historical_csv",
+						"type": "DatasetReference"
+					},
+					"name": "sinkpollutioncsv",
+					"description": "Add sink dataset\n"
 				}
 			],
 			"transformations": [
@@ -106,7 +114,16 @@
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sinkpollution"
+				"     partitionBy('hash', 1)) ~> sinkpollution",
+				"selectpollution sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['silver_pollution_historical.csv'],",
+				"     umask: 0777,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sinkpollutioncsv"
 			]
 		}
 	}
