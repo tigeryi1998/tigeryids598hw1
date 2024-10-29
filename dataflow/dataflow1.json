@@ -1,0 +1,30 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "bronze_pollution_historical",
+						"type": "DatasetReference"
+					},
+					"name": "sourcepollution"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          coord as (lon as double, lat as double),",
+				"          list as (main as (aqi as integer), components as (co as double, no as integer, no2 as double, o3 as double, so2 as double, pm2_5 as double, pm10 as double, nh3 as double), dt as integer)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> sourcepollution"
+			]
+		}
+	}
+}
