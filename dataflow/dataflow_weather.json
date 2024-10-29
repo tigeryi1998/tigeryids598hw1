@@ -99,7 +99,7 @@
 				"          message,",
 				"          clouds_all,",
 				"          timestamp,",
-				"          feels_like,",
+				"          feels_like_K = feels_like,",
 				"          humidity,",
 				"          pressure,",
 				"          temp_K = temp,",
