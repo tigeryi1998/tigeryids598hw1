@@ -24,7 +24,7 @@
 					"name": "filternull"
 				},
 				{
-					"name": "derivedColumn1"
+					"name": "derivedcolumns"
 				}
 			],
 			"scriptLines": [
@@ -82,7 +82,7 @@
 				"          temp_max_F = round((temp_max - 273.15) * 1.8 + 32),",
 				"          feels_like_F = round((feels_like - 273.15) * 1.8 + 32),",
 				"          lat = 42.3601,",
-				"          lon = -71.0589) ~> derivedColumn1"
+				"          lon = -71.0589) ~> derivedcolumns"
 			]
 		}
 	}
