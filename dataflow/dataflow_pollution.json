@@ -16,6 +16,9 @@
 			"transformations": [
 				{
 					"name": "flattenpollution"
+				},
+				{
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -38,7 +41,8 @@
 				"          no = list.components.no",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flattenpollution"
+				"     skipDuplicateMapOutputs: false) ~> flattenpollution",
+				"flattenpollution derive(corrected_timestamp = iif(length(toString(timestamp)) == 10, toInteger(timestamp), toInteger(null()))) ~> derivedColumn1"
 			]
 		}
 	}
