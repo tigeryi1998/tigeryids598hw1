@@ -26,7 +26,7 @@
 						"type": "DatasetReference"
 					},
 					"name": "sinkweathercsv",
-					"description": "Export data to sink"
+					"description": "Export data to silver_weather_historical_csv"
 				}
 			],
 			"transformations": [
