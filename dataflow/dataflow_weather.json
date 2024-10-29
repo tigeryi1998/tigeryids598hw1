@@ -72,7 +72,10 @@
 				"          location = 'Boston') ~> timestamplocation",
 				"timestamplocation filter((!isNull(corrected_timestamp))&&(!isNull(temp))&&(!isNull(humidity))) ~> filternull",
 				"filternull derive(date_time = toTimestamp(toLong(corrected_timestamp)),",
-				"          id = concat(location, toString(corrected_timestamp))) ~> derivedColumn1"
+				"          id = concat(location, toString(corrected_timestamp)),",
+				"          temp_C = (temp - 273.15),",
+				"          temp_min_C = (temp_min - 273.15),",
+				"          temp_F = (temp - 273.15) * 1.8 + 32) ~> derivedColumn1"
 			]
 		}
 	}
