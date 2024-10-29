@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "flattenpollution"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          coord as (lon as double, lat as double),",
@@ -23,7 +27,14 @@
 				"     validateSchema: false,",
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> sourcepollution"
+				"     documentForm: 'documentPerLine') ~> sourcepollution",
+				"sourcepollution foldDown(unroll(list),",
+				"     mapColumn(",
+				"          lon = coord.lon,",
+				"          lat = coord.lat",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flattenpollution"
 			]
 		}
 	}
