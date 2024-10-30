@@ -62,7 +62,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['data_*.json']) ~> sourceweather",
+				"     wildcardPaths:['data*.json']) ~> sourceweather",
 				"flattenlist foldDown(unroll(weather, weather),",
 				"     mapColumn(",
 				"          calctime,",
