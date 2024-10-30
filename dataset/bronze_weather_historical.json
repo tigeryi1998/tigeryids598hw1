@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "data_c8d2b105-5449-4d8b-86f4-2ba493f5feec_555b8b5b-3158-446b-b9f6-1fa186e4d8cb.json",
+				"fileName": "data_62ae96f3-046b-48b3-8c45-e8be5e82d5e8_b52a6d86-2d70-4ae2-ba36-06f08fd3ce94.json",
 				"folderPath": "Bronze",
 				"fileSystem": "hw1blobcontainer"
 			}
@@ -72,9 +72,6 @@
 									},
 									"deg": {
 										"type": "integer"
-									},
-									"gust": {
-										"type": "number"
 									}
 								}
 							},
@@ -103,6 +100,14 @@
 										"icon": {
 											"type": "string"
 										}
+									}
+								}
+							},
+							"rain": {
+								"type": "object",
+								"properties": {
+									"1h": {
+										"type": "number"
 									}
 								}
 							}
