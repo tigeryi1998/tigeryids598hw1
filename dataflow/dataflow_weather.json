@@ -46,7 +46,7 @@
 					"name": "selectdropweather"
 				},
 				{
-					"name": "flatten1"
+					"name": "flattenlist"
 				}
 			],
 			"scriptLines": [
@@ -63,7 +63,7 @@
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> sourceweather",
-				"flatten1 foldDown(unroll(weather),",
+				"flattenlist foldDown(unroll(weather),",
 				"     mapColumn(",
 				"          calctime,",
 				"          city_id,",
@@ -157,7 +157,7 @@
 				"          rain = list.rain",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"     skipDuplicateMapOutputs: false) ~> flattenlist",
 				"selectdropweather sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
