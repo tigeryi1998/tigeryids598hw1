@@ -215,8 +215,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "Bronze",
-						"fileSystem": "hw1blobcontainer"
+						"folderPath": "bronze/weather",
+						"fileSystem": "data"
 					}
 				},
 				"schema": {
@@ -815,7 +815,7 @@
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
 						"     documentForm: 'documentPerLine',",
-						"     wildcardPaths:['data*.json']) ~> sourceweather",
+						"     wildcardPaths:['*.json']) ~> sourceweather",
 						"flattenlist foldDown(unroll(weather, weather),",
 						"     mapColumn(",
 						"          calctime,",
