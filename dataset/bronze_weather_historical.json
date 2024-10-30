@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Bronze",
-				"fileSystem": "hw1blobcontainer"
+				"folderPath": "bronze/weather",
+				"fileSystem": "data"
 			}
 		},
 		"schema": {
