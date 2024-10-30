@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "example_weather.json",
 				"folderPath": "Bronze",
 				"fileSystem": "hw1blobcontainer"
 			}
