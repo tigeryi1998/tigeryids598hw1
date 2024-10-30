@@ -1099,7 +1099,7 @@
 						"     inferDriftedColumnTypes: true,",
 						"     ignoreNoFilesFound: false,",
 						"     documentForm: 'documentPerLine') ~> sourcepollution",
-						"sourcepollution foldDown(unroll(list),",
+						"sourcepollution foldDown(unroll(list, list),",
 						"     mapColumn(",
 						"          lat = coord.lat,",
 						"          lon = coord.lon,",
