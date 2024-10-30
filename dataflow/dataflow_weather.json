@@ -101,7 +101,7 @@
 				"          feels_like_F = round((feels_like - 273.15) * 1.8 + 32, 2),",
 				"          lat = 42.3601,",
 				"          lon = -71.0589,",
-				"          weather_id_value = toInteger(weather_id),",
+				"          weather_id_value = toInteger(weather_id[0]),",
 				"          weather_main_value = toString(weather_main),",
 				"          weather_description_value = toString(weather_description),",
 				"          weather_icon_value = toString(weather_icon),",
