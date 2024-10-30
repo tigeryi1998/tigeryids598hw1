@@ -72,6 +72,9 @@
 									},
 									"deg": {
 										"type": "integer"
+									},
+									"gust": {
+										"type": "number"
 									}
 								}
 							},
