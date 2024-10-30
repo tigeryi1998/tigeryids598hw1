@@ -63,7 +63,7 @@
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> sourceweather",
-				"flattenlist foldDown(unroll(weather),",
+				"flattenlist foldDown(unroll(weather, weather),",
 				"     mapColumn(",
 				"          calctime,",
 				"          city_id,",
