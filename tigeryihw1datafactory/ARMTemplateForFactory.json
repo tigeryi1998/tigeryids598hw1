@@ -1242,7 +1242,7 @@
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
 						"     documentForm: 'documentPerLine',",
-						"     wildcardPaths:['hw1blobcontainer/Bronze/data*.json']) ~> sourceweather",
+						"     wildcardPaths:['data*.json']) ~> sourceweather",
 						"flattenlist foldDown(unroll(weather, weather),",
 						"     mapColumn(",
 						"          calctime,",
