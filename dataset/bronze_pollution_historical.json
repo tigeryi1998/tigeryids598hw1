@@ -11,8 +11,8 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "air_pollution_historical.json",
-				"folderPath": "Bronze",
-				"fileSystem": "hw1blobcontainer"
+				"folderPath": "bronze",
+				"fileSystem": "data"
 			}
 		},
 		"schema": {
