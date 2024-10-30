@@ -128,8 +128,8 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": "air_pollution_historical.json",
-						"folderPath": "Bronze",
-						"fileSystem": "hw1blobcontainer"
+						"folderPath": "bronze",
+						"fileSystem": "data"
 					}
 				},
 				"schema": {
@@ -814,8 +814,7 @@
 						"     allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
-						"     documentForm: 'documentPerLine',",
-						"     wildcardPaths:['*.json']) ~> sourceweather",
+						"     documentForm: 'documentPerLine') ~> sourceweather",
 						"flattenlist foldDown(unroll(weather, weather),",
 						"     mapColumn(",
 						"          calctime,",
